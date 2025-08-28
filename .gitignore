@@ -2,6 +2,7 @@
 db/
 output_files/
 *.sof
+*.qsf.bak
 *.pof
 *.jdi
 *.smsg
