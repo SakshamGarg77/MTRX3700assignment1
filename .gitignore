@@ -1,0 +1,18 @@
+# Quartus auto-generated files
+db/
+output_files/
+*.sof
+*.pof
+*.jdi
+*.smsg
+*.rpt
+*.summary
+*.pin
+*.bak
+*.qws
+*.done
+*.asm.rpt
+*.flow.rpt
+*.fit.*
+*.map.*
+*.sta.*
