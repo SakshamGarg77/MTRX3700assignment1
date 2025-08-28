@@ -1,0 +1,65 @@
+// top_whack_step2.v : Random moles + switch whacks + hex score (DE2-115).
+module top_whack_step2(
+    input  wire        CLOCK_50,
+    input  wire [3:0]  KEY,          // KEY[0] active-low reset
+    input  wire [17:0] SW,           // use SW[7:0] for whacks
+    output wire [17:0] LEDR,
+    output wire [6:0]  HEX0, HEX1, HEX2, HEX3
+);
+    // --- reset (active-high)
+    wire rst = ~KEY[0];
+
+    // --- 1 kHz tick for scheduler
+    wire tick_1k;
+    clk_en CE1(.clk(CLOCK_50), .rst(rst), .div(32'd49_999), .tick(tick_1k));
+
+    // --- random single mole (1 LED on at a time)
+    wire [7:0] mole_active;
+    mole_scheduler_single #(.ON_TICKS(10'd600), .GAP_TICKS(10'd400)) MS (
+        .clk (CLOCK_50), .rst (rst), .tick(tick_1k), .mole(mole_active)
+    );
+
+    // --- debounce + edge for SW[7:0]
+    wire [7:0] sw_level, sw_edge;
+    genvar i;
+    generate
+        for (i=0;i<8;i=i+1) begin : G_DB
+            debounce #(.CLK_HZ(50_000_000), .DEBOUNCE_MS(8)) DB (
+                .clk(CLOCK_50),
+                .sw_in(SW[i]),
+                .level(sw_level[i]),
+                .edge(sw_edge[i])
+            );
+        end
+    endgenerate
+
+    // --- hit detection
+    wire        hit_pulse;
+    wire [7:0]  hit_mask;
+    whack_detect WD(
+        .clk(CLOCK_50), .rst(rst),
+        .mole_active(mole_active),
+        .sw_edge(sw_edge),
+        .hit_pulse(hit_pulse),
+        .hit_mask(hit_mask)
+    );
+
+    // --- score
+    wire [15:0] score;
+    score_core SC(
+        .clk(CLOCK_50), .rst(rst),
+        .hit_pulse(hit_pulse), .hit_mask(hit_mask),
+        .score(score)
+    );
+
+    // --- outputs
+    assign LEDR[7:0]  = mole_active;    // moles on LEDs
+    assign LEDR[17:8] = 10'b0;
+
+    // show score (hex) on HEX0..HEX3
+    seg7_hex H0(score[3:0],   HEX0);
+    seg7_hex H1(score[7:4],   HEX1);
+    seg7_hex H2(score[11:8],  HEX2);
+    seg7_hex H3(score[15:12], HEX3);
+
+endmodule

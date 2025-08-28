@@ -1,0 +1,20 @@
+// whack_detect.v : hit when a debounced edge arrives on an active mole.
+module whack_detect(
+    input  wire        clk,
+    input  wire        rst,
+    input  wire [7:0]  mole_active,  // one-hot LEDs that are ON now
+    input  wire [7:0]  sw_edge,      // 1-cycle pulses from debounce
+    output reg         hit_pulse,    // 1 when any correct whack happens
+    output reg  [7:0]  hit_mask      // which holes were hit
+);
+    wire [7:0] hit_now = mole_active & sw_edge;
+    always @(posedge clk) begin
+        if (rst) begin
+            hit_mask  <= 8'b0;
+            hit_pulse <= 1'b0;
+        end else begin
+            hit_mask  <= hit_now;
+            hit_pulse <= |hit_now;
+        end
+    end
+endmodule

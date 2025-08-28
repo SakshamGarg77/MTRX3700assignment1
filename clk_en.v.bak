@@ -1,0 +1,23 @@
+// clk_en.v : generate a 1-cycle 'tick' every (div+1) input clocks.
+module clk_en(
+  input  wire        clk,
+  input  wire        rst,      // synchronous, active-high
+  input  wire [31:0] div,      // e.g. 24_999_999 for 0.5 s @ 50 MHz
+  output reg         tick
+);
+  reg [31:0] cnt;
+  always @(posedge clk) begin
+    if (rst) begin
+      cnt  <= 32'd0;
+      tick <= 1'b0;
+    end else begin
+      if (cnt == div) begin
+        cnt  <= 32'd0;
+        tick <= 1'b1;          // 1-cycle pulse
+      end else begin
+        cnt  <= cnt + 1'b1;
+        tick <= 1'b0;
+      end
+    end
+  end
+endmodule
