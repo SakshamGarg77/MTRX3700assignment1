@@ -1,5 +1,11 @@
+// ============================================================================
 // debounce.v : vector debouncer sampled by tick_en (e.g., 1 kHz)
 // STABLE_TICKS is how many consecutive samples must match.
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// Single-bit debouncer module
+// ----------------------------------------------------------------------------
 module debounce_1bit
 #(
     parameter integer STABLE_TICKS = 10
@@ -10,27 +16,41 @@ module debounce_1bit
     input  wire din,
     output reg  dout
 );
-    reg [7:0] ctr;
-    reg last;
 
+    // Internal registers
+    reg [7:0] ctr;
+    reg       last;
+
+    // Main debouncing logic
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
+            // Reset state
             ctr  <= 8'd0;
             last <= 1'b0;
             dout <= 1'b0;
         end else if (tick_en) begin
+            // Check if input is stable
             if (din == last) begin
-                if (ctr < STABLE_TICKS[7:0]) ctr <= ctr + 8'd1;
+                // Input is stable, increment counter
+                if (ctr < STABLE_TICKS[7:0]) 
+                    ctr <= ctr + 8'd1;
             end else begin
+                // Input changed, reset counter and update last value
                 ctr  <= 8'd0;
                 last <= din;
             end
 
-            if (ctr == STABLE_TICKS[7:0]) dout <= last;
+            // Output stable value when counter reaches threshold
+            if (ctr == STABLE_TICKS[7:0]) 
+                dout <= last;
         end
     end
+
 endmodule
 
+// ----------------------------------------------------------------------------
+// Multi-bit vector debouncer module
+// ----------------------------------------------------------------------------
 module debounce
 #(
     parameter integer WIDTH        = 1,
@@ -42,13 +62,19 @@ module debounce
     input  wire [WIDTH-1:0]  din,
     output wire [WIDTH-1:0]  dout
 );
+
+    // Generate multiple single-bit debouncers
     genvar i;
     generate
-        for (i=0; i<WIDTH; i=i+1) begin : g_db
+        for (i = 0; i < WIDTH; i = i + 1) begin : g_db
             debounce_1bit #(.STABLE_TICKS(STABLE_TICKS)) u (
-                .clk(clk), .rst_n(rst_n), .tick_en(tick_en),
-                .din(din[i]), .dout(dout[i])
+                .clk(clk), 
+                .rst_n(rst_n), 
+                .tick_en(tick_en),
+                .din(din[i]), 
+                .dout(dout[i])
             );
         end
     endgenerate
+
 endmodule

@@ -1,5 +1,8 @@
+// ============================================================================
 // score_bcd99.v : 2-digit BCD score counter (00..99), increments on hit_pulse_any.
 // Resets to 00 on reset or start_pulse. Saturates at 99.
+// ============================================================================
+
 module score_bcd99 (
     input  wire clk,
     input  wire rst_n,         // active-low
@@ -9,23 +12,35 @@ module score_bcd99 (
     output reg  [3:0] tens,    // BCD 0..9
     output reg  [3:0] ones     // BCD 0..9
 );
+
+    // Increment enable signal
     wire inc = game_active && hit_pulse_any;
 
+    // BCD counter logic
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
-            tens <= 4'd0; ones <= 4'd0;
+            // Reset state
+            tens <= 4'd0; 
+            ones <= 4'd0;
         end else if (start_pulse) begin
-            tens <= 4'd0; ones <= 4'd0;
+            // Start pulse - reset score
+            tens <= 4'd0; 
+            ones <= 4'd0;
         end else if (inc) begin
+            // Increment score with BCD arithmetic
             if (tens == 4'd9 && ones == 4'd9) begin
-                // saturate at 99
-                tens <= 4'd9; ones <= 4'd9;
+                // Saturate at 99
+                tens <= 4'd9; 
+                ones <= 4'd9;
             end else if (ones == 4'd9) begin
+                // Ones digit overflow - increment tens
                 ones <= 4'd0;
                 tens <= tens + 4'd1;
             end else begin
+                // Normal increment of ones digit
                 ones <= ones + 4'd1;
             end
         end
     end
+
 endmodule
