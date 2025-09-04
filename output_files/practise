@@ -1,0 +1,966 @@
+Triçkery
+investigator11
+Online
+
+
+
+A wild 
+saksham
+ appeared. — 8/7/25, 3:43 PM
+
+Wave to say hi!
+Murray — 8/7/25, 3:43 PM
+A wild 
+Kr7van
+ appeared. — 8/7/25, 4:50 PM
+
+Wave to say hi!
+Glad you're here, 
+Ethan Samuels
+. — 8/8/25, 12:53 PM
+
+Wave to say hi!
+Ethan Samuels — 8/8/25, 12:54 PM
+Murray — 8/8/25, 2:31 PM
+Yay you made it, 
+Triçkery
+! — 8/8/25, 10:14 PM
+
+Wave to say hi!
+Ethan Samuels — 8/14/25, 4:20 PM
+0466416118
+saksham — 8/29/25, 6:33 PM
+hi guys i finished commenting the code, ive tried explaining everything in it have a look and see if we need to change something sorry for any spelling mistakes i did in a hurry. 
+
+my git is still being an issue and not letting me push properly i will try that again but till then all the code is here we will be asked 5 questions each next demo lab about the code. i also talked to a few seniors on advice on how to fix the multiple toggle at the same time which we saw in the lab made the scoring really weird i believe its fixed now i tried it a few times have a look at the code and let me know if anything needs changes
+Attachment file type: acrobat
+3700.pdf
+313.15 KB
+Murray — 8/29/25, 6:34 PM
+Awesome, thanks Saksham!
+Kr7van — 8/29/25, 6:38 PM
+Nice job
+Didn’t get a chance to do anything today, tmw I should be able to crack onto it
+Triçkery — 8/30/25, 1:11 AM
+Same too lol
+I’ll update the code in the testbenches to the ones with these code comments
+Triçkery — 8/31/25, 3:50 PM
+@saksham
+when i got to copy paste your code, it includes the numbers for each line
+
+1
+2 // Basically responsible for generating a 1 cycle pulse
+3 // Our fpga clock is too fast for humans to see
+4 // we keep everythig in the same clock domain
+5 module clk_en
+6 #(
+7 parameter integer CLK_HZ = 50 _000_000 , // input clock frequency in
+Hz ( actual board clock )
+8 parameter integer TICK_HZ = 1 // Our desired pulse rate in hz
+9 ) (
+10 input wire clk , // our fast fpga clock (50 Mhz )
+11 input wire rst_n , // async reset
+12 output reg tick // output - 1 clock cycle wide pulse
+13 ) ;
+14 // number of clock cycles per desired pulse
+15 // we use localparam instead of parameter because we dont want this
+value to change at any point
+16 localparam integer DIV = ( CLK_HZ / TICK_HZ ) ;
+17
+18 // free running count
+did u make any changes to the code i copied and pasted from ur emails since?
+saksham — 8/31/25, 3:51 PM
+Yup
+Ill format and send a .txt so that u dont copy the latex numbers
+Triçkery — 8/31/25, 3:52 PM
+bro on the git output files it has
+Image
+but last updated 3 days ago
+im gonna need the updated version
+Kr7van — 8/31/25, 3:53 PM
+is it all of these modules ? 
+Image
+Image
+saksham — 8/31/25, 3:53 PM
+Dont take it from git it has the old one w out comments ill send a .txt
+Kr7van — 8/31/25, 3:54 PM
+ok
+thanks
+Triçkery — 8/31/25, 3:54 PM
+bro can u send now? or u out
+Kr7van — 8/31/25, 3:54 PM
+just send the modules we need
+saksham — 8/31/25, 3:54 PM
+Finishing lunch give me 15
+Triçkery — 8/31/25, 3:54 PM
+easy bro
+Kr7van — 8/31/25, 3:54 PM
+what you eating?
+Triçkery — 8/31/25, 3:55 PM
+eating the code
+saksham — 8/31/25, 3:55 PM
+Kung pao chicken
+Kr7van — 8/31/25, 3:55 PM
+nice hahahahah 
+saksham — 8/31/25, 3:55 PM
+Its beautiful
+saksham — 8/31/25, 4:14 PM
+Number 1
+
+// Basically responsible for generating a 1 cycle pulse
+// Our fpga clock is too fast for humans to see 
+// we keep everythig in the same clock domain 
+module clk_en
+Expand
+Untitled document (1).txt
+24 KB
+remember to make the top_whack_final the top level entity
+Kr7van — 8/31/25, 4:15 PM
+thanks we will try now
+saksham — 9/1/25, 10:32 AM
+Can someone send me the invite for the shared doc i guess i never got it
+Murray — 9/1/25, 10:45 AM
+https://docs.google.com/document/d/1iOzrHl4b0MLdpIJt7-vWbKP_qrVG2Fp6bH7Gia5TUQU/edit?usp=sharing_eip&invite=COHywLYG&ts=68aff03f&sh=i7Awso9e8YysYdkQ&ca=1
+Google Docs
+Assignments
+Overleaf: https://www.overleaf.com/8419696587rfrdbdjfrxxn#30a300 Meeting: Tue, 8pm https://meet.google.com/uow-ruqq-cty Monday - Sept 8th Midnight - Code upload and report upload Person 1 | Murray | Christopher | Person 4 | Ethan (0.5) | (1.25) | (1) | (1) | ...
+saksham — 9/1/25, 10:45 AM
+Thanks
+Kr7van — 9/2/25, 8:57 AM
+What time are we calling tonight, it is late right?
+Triçkery — 9/2/25, 2:54 PM
+yea sounds good
+saksham — 9/2/25, 2:54 PM
+What time
+Triçkery — 9/2/25, 2:57 PM
+Around 6-7
+saksham — 9/2/25, 2:58 PM
+Down
+Murray — 9/2/25, 3:04 PM
+I won't be able to make it that early, sorry. I have class til 6 and won't be home until like 8pm.
+Triçkery — 9/2/25, 3:05 PM
+Let’s do 8
+Murray — 9/2/25, 8:04 PM
+I'm on the VC.
+Murray — 9/2/25, 8:11 PM
+@everyone?
+Murray — 9/2/25, 8:20 PM
+Alrighty, well we decided to stop waiting.
+I'll have my part done and ready in time for the report submission on Sunday. Not sure how far through it I'll be by Thursday -- I've caught a flu atm and I've got several other things rolling in in parallel -- but I do have a big chunk of time of next weekend free to work on this, so will have my section up to scratch by Sunday. 
+Kr7van — 9/2/25, 8:20 PM
+Ok we discussed quickly what jeevan and I had completed for the test benches. Because only murray joined we decided to hop off. But essentially we have 1 working test bench so far, wont have them all completed for thursday but definitely for the report
+saksham — 9/2/25, 8:22 PM
+Sorry guys i had to go out couldnt attend and yeah just get it ready by the report all we need for Thursday is to study the code thats where the Q/A will happen from
+Murray — 9/2/25, 8:26 PM
+I'm not certain if I'll be able to make it in on Thursday, with this flu -- I'm feeling okay at the moment but also kinda coughing my lungs out -- and I kinda don't really want to go making everyone else sick if I can avoid it. Will see how I go.
+Kr7van — 9/2/25, 8:26 PM
+all good murray let us know
+saksham — 9/2/25, 8:28 PM
+Take care!
+Triçkery — 9/2/25, 8:40 PM
+There’s Q&A
+But probably can just do it over a call
+With marker
+Ethan Samuels — 9/2/25, 8:45 PM
+Sorry guys I couldn’t join
+Updates on my side: finished draft of first diagram, watched tutorial for my last section, going to finish off both parts after I submit my latest assignment
+Hopefully done before end of the week
+Murray — 9/2/25, 9:01 PM
+Yeah I could probably just tough it out and go in, but if not then I'll have to get a medical certificate and special cons.
+Will see how I'm feeling tomorrow.
+Murray — Yesterday at 7:34 PM
+Hey guys ... I'm afraid my body is still in full-on flu mode, so best I skip tomorrow's lab I think. I'm coughing like a cannon and I'd rather not go making all of you folk sick as well if I can help it.
+I'm gonna pick up a med cert and get myself the special cons tomorrow morning. 
+Just sent Viorela an email -- she said to just make sure you guys let the tutors know that I've got the special cons, during the lab session tomorrow. 
+Will have my section on the FSM done in time for the report submission on Sunday.
+Sorry to bungle around the plan like this. 😔
+Kr7van — Yesterday at 7:38 PM
+all good murray,  hope you get better. Can you send viorela the email?
+Murray — Yesterday at 7:38 PM
+Yeah I already emailed her just now.
+Kr7van — Yesterday at 7:39 PM
+ah alright nice
+Murray — Yesterday at 7:39 PM
+She asked me to ask you to communicate that to the tutors, please.
+Kr7van — Yesterday at 7:40 PM
+OHHH
+yeah i will let them know
+Murray — Yesterday at 7:40 PM
+Thanks.
+Triçkery — Yesterday at 8:50 PM
+https://edstem.org/au/courses/26114/discussion/2900708
+Ed Discussion
+Ed Discussion helps scale course communication in a beautiful and intuitive interface. Questions reach and benefit all students in the class. Less email, more time saved.
+someone fill in gorm
+idk group name
+Ethan Samuels — Yesterday at 9:25 PM
+All good Murray
+Get better soon!!!!
+For everyone else, I added extensive comments to the code and add a README https://github.com/SakshamGarg77/MTRX3700assignment1
+GitHub
+GitHub - SakshamGarg77/MTRX3700assignment1
+Contribute to SakshamGarg77/MTRX3700assignment1 development by creating an account on GitHub.
+Contribute to SakshamGarg77/MTRX3700assignment1 development by creating an account on GitHub.
+Please have a read of the README before tomorrow
+Is very helpful
+Ethan Samuels — Yesterday at 9:28 PM
+Image
+We can brainstorm group name tomorrow, but for now ^
+Ethan Samuels — Yesterday at 10:18 PM
+Also, I think I may have gone into too much detail for the system diagram, would love to have a look over it with u guys tomorrow
+Image
+svg will be clearer
+<svg id="export-svg" width="100%" xmlns="http://www.w3.org/2000/svg" class="flowchart" style="max-width: 1422.70361328125px;" viewBox="-90.90625 -62 1422.70361328125 3829" role="graphics-document document" aria-roledescription="flowchart-v2"><style xmlns="http://www.w3.org/1999/xhtml">@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"); p {margin: 0;}</style><style>#export-svg{font-family:arial,sans-serif;font-size:14px;fill:#000000;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#export-svg .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#export-svg .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#export-svg .error-icon{fill:#552222;}#export-svg .error-text{fill:#552222;stroke:#552222;}#export-svg .edge-thickness-normal{stroke-width:1px;}#export-svg .edge-thickness-thick{stroke-width:3.5px;}#export-svg .edge-pattern-solid{stroke-dasharray:0;}#export-svg .edge-thickness-invisible{stroke-width:0;fill:none;}#export-svg .edge-pattern-dashed{stroke-dasharray:3;}#export-svg .edge-pattern-dotted{stroke-dasharray:2;}#export-svg .marker{fill:#666;stroke:#666;}#export-svg .marker.cross{stroke:#666;}#export-svg svg{font-family:arial,sans-serif;font-size:14px;}#export-svg p{margin:0;}#export-svg .label{font-family:arial,sans-serif;color:#000000;}#export-svg .cluster-label text{fill:#333;}#export-svg .cluster-label span{color:#333;}#export-svg .cluster-label span p{background-color:transparent;}#export-svg .label text,#export-svg span{fill:#000000;color:#000000;}#export-svg .node rect,#export-svg .node circle,#export-svg .node ellipse,#export-svg .node polygon,#export-svg .node path{fill:#eee;stroke:#999;stroke-width:1px;}#export-svg .rough-node .label text,#export-svg .node .label text,#export-svg .image-shape .label,#export-svg .icon-shape .label{text-anchor:middle;}#export-svg .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#export-svg .rough-node .label,#export-svg .node .label,#export-svg .image-shape .label,#export-svg .icon-shape .label{text-align:center;}#export-svg .node.clickable{cursor:pointer;}#export-svg .root .anchor path{fill:#666!important;stroke-width:0;stroke:#666;}#export-svg .arrowheadPath{fill:#333333;}#export-svg .edgePath .path{stroke:#666;stroke-width:1px;}#export-svg .flowchart-link{stroke:#666;fill:none;}#export-svg .edgeLabel{background-color:white;text-align:center;}#export-svg .edgeLabel p{background-color:white;}#export-svg .edgeLabel rect{opacity:0.5;background-color:white;fill:white;}#export-svg .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#export-svg .cluster rect{fill:hsl(0, 0%, 98.9215686275%);stroke:#707070;stroke-width:1px;}#export-svg .cluster text{fill:#333;}#export-svg .cluster span{color:#333;}#export-svg div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:arial,sans-serif;font-size:12px;background:hsl(-160, 0%, 93.3333333333%);border:1px solid #707070;border-radius:2px;pointer-events:none;z-index:100;}#export-svg .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#000000;}#export-svg rect.text{fill:none;stroke-width:0;}#export-svg .icon-shape,#export-svg .image-shape{background-color:white;text-align:center;}#export-svg .icon-shape p,#export-svg .image-shape p{background-color:white;padding:2px;}#export-svg .icon-shape rect,#export-svg .image-shape rect{opacity:0.5;background-color:white;fill:white;}#export-svg .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#export-svg .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#export-svg .node .neo-node{stroke:#999;}#export-svg [data-look="neo"].node rect,#export-svg [data-look="neo"].cluster rect,#export-svg [data-look="neo"].node polygon{stroke:url(#export-svg-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#export-svg [data-look="neo"].node path{stroke:url(#export-svg-gradient);stroke-width:1;}#export-svg [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#export-svg [data-look="neo"].node .neo-line path{stroke:#999;filter:none;}#export-svg [data-look="neo"].node circle{stroke:url(#export-svg-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#export-svg [data-look="neo"].node circle .state-start{fill:#000000;}#export-svg [data-look="neo"].statediagram-cluster rect{fill:#eee;stroke:url(#export-svg-gradient);stroke-width:1;}#export-svg [data-look="neo"].icon-shape .icon{fill:url(#export-svg-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#export-svg [data-look="neo"].icon-shape .icon-neo path{stroke:url(#export-svg-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#export-svg :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#export-svg .input&gt;*{fill:#e1f5fe!important;stroke:#01579b!important;stroke-width:3px!important;}#export-svg .input span{fill:#e1f5fe!important;stroke:#01579b!important;stroke-width:3px!important;}#export-svg .fsm&gt;*{fill:#ffebee!important;stroke:#c62828!important;stroke-width:3px!important;}#export-svg .fsm span{fill:#ffebee!important;stroke:#c62828!important;stroke-width:3px!important;}#export-svg .module&gt;*{fill:#f3e5f5!important;stroke:#4a148c!important;stroke-width:2px!important;}#export-svg .module span{fill:#f3e5f5!important;stroke:#4a148c!important;stroke-width:2px!important;}#export-svg .output&gt;*{fill:#e8f5e8!important;stroke:#1b5e20!important;stroke-width:2px!important;}#export-svg .output span{fill:#e8f5e8!important;stroke:#1b5e20!important;stroke-width:2px!important;}#export-svg .clock&gt;*{fill:#fff8e1!important;stroke:#f57f17!important;stroke-width:2px!important;}#export-svg .clock span{fill:#fff8e1!important;stroke:#f57f17!important;stroke-width:2px!important;}#export-svg .logic&gt;*{fill:#f1f8e9!important;stroke:#33691e!important;stroke-width:2px!important;}#export-svg .logic span{fill:#f1f8e9!important;stroke:#33691e!important;stroke-width:2px!important;}#export-svg .combinational&gt;*{fill:#e8eaf6!important;stroke:#3f51b5!important;stroke-width:2px!important;}#export-svg .combinational span{fill:#e8eaf6!important;stroke:#3f51b5!important;stroke-width:2px!important;}</style><g><marker id="export-svg_flowchart-v2-pointEnd" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="7.75" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="export-svg_flowchart-v2-pointStart" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="4" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="export-svg_flowchart-v2-pointEnd-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="11.5" refY="7" markerUnits="userSpaceOnUse" markerWidth="10.5" markerHeight="14" orient="auto"><path d="M 0 0 L 11.5 7 L 0 14 z" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="export-svg_flowchart-v2-pointStart-margin" class="marker flowchart-v2" viewBox="0 0 11.5 14" refX="1" refY="7" markerUnits="userSpaceOnUse" markerWidth="11.5" markerHeight="14" orient="auto"><polygon points="0,7 11.5,14 11.5,0" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="export-svg_flowchart-v2-circleEnd" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="10.75" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="export-svg_flowchart-v2-circleStart" class="marker flowchart-v2" viewBox="0 0 10 10" refX="0" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="export-svg_flowchart-v2-circleEnd-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refY="5" refX="12.25" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="export-svg_flowchart-v2-circleStart-margin" class="marker flowchart-v2" viewBox="0 0 10 10" refX="-2" refY="5" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 0; stroke-dasharray: 1, 0;"/></marker><marker id="export-svg_flowchart-v2-crossEnd" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"/></marker><marker id="export-svg_flowchart-v2-crossStart" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"/></marker><marker id="export-svg_flowchart-v2-crossEnd-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="17.7" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5;"/></marker><marker id="export-svg_flowchart-v2-crossStart-margin" class="marker cross flowchart-v2" viewBox="0 0 15 15" refX="-3.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 1,1 L 14,14 M 1,14 L 14,1" class="arrowMarkerPath" style="stroke-width: 2.5; stroke-dasharray: 1, 0;"/></marker></g><defs><filter id="drop-shadow" height="130%" width="130%"><feDropShadow dx="4" dy="4" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs><defs><filter id="drop-shadow-small" height="150%" width="150%"><feDropShadow dx="2" dy="2" stdDeviation="0" flood-opacity="0.06" flood-color="#000000"/></filter></defs><linearGradient id="export-svg-gradient" gradientUnits="objectBoundingBox" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="hsl(0, 0%, 83.3333333333%)" stop-opacity="1"/><stop offset="100%" stop-color="hsl(0, 0%, 88.9215686275%)" stop-opacity="1"/></linearGradient><g class="subgraphs"><g class="subgraph"><g class="cluster" id="OUTPUT_PROCESSING" data-id="OUTPUT_PROCESSING" data-et="cluster" data-look="neo"><rect style="" x="12" y="3070.5" width="819.9453125" height="688.5"/><g class="cluster-label" transform="translate(364.38671875, 3070.5)"><foreignObject width="115.171875" height="21"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Output Processing</p></span></div></foreignObject></g></g></g><g class="subgraph"><g class="cluster" id="GAME_LOGIC" data-id="GAME_LOGIC" data-et="cluster" data-look="neo"><rect style="" x="67.16536458333337" y="1431.5" width="1184.18125" height="1512"/><g class="cluster-label" transform="translate(590.3888020833334, 1431.5)"><foreignObject width="137.734375" height="21"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Game Logic &amp; Control</p></span></div></foreignObject></g></g></g><g class="subgraph"><g class="cluster" id="INPUT_PROCESSING" data-id="INPUT_PROCESSING" data-et="cluster" data-look="neo"><rect style="" x="97.44036458333335" y="12" width="1226.35703125" height="1065"/><g class="cluster-label" transform="translate(658.4743489583334, 12)"><foreignObject width="104.2890625" height="21"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Input Processing</p></span></div></foreignObject></g></g></g><g class="subgraph"><g class="cluster" id="OUTPUTS" data-id="OUTPUTS" data-et="cluster" data-look="neo"><rect style="" x="74.94296875" y="3570" width="353.765625" height="177"/><g class="cluster-label" transform="translate(195.02109375, 3570)"><foreignObject width="113.609375" height="21"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Hardware Outputs</p></span></div></foreignObject></g></g></g><g class="subgraph"><g class="cluster" id="DISPLAY_DECODE" data-id="DISPLAY_DECODE" data-et="cluster" data-look="neo"><rect style="" x="40" y="3114" width="779.9453125" height="324"/><g class="cluster-label" transform="translate(375.1171875, 3114)"><foreignObject width="109.7109375" height="21"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Display Decoders</p></span></div></foreignObject></g></g></g><g class="subgraph"><g class="cluster" id="SCORING" data-id="SCORING" data-et="cluster" data-look="neo"><rect style="" x="1006.3348958333333" y="2789" width="188.2890625" height="135"/><g class="cluster-label" transform="translate(1039.3895833333333, 2789)"><foreignObject width="122.1796875" height="21"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Score Management</p></span></div></foreignObject></g></g></g><g class="subgraph"><g class="cluster" id="HIT_DETECTION" data-id="HIT_DETECTION" data-et="cluster" data-look="neo"><rect style="" x="789.2059895833333" y="2501" width="212.921875" height="156"/><g class="cluster-label" transform="translate(855.5927083333333, 2501)"><foreignObject width="80.1484375" height="21"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Hit Detection</p></span></div></foreignObject></g></g></g><g class="subgraph"><g class="cluster" id="MOLE_CONTROL" data-id="MOLE_CONTROL" data-et="cluster" data-look="neo"><rect style="" x="235.60677083333337" y="2192" width="232.5859375" height="177"/><g class="cluster-label" transform="translate(312.21614583333337, 2192)"><foreignObject width="79.3671875" height="21"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Mole Control</p></span></div></foreignObject></g></g></g><g class="subgraph"><g class="cluster" id="RANDOM_GEN" data-id="RANDOM_GEN" data-et="cluster" data-look="neo"><rect style="" x="159.16536458333337" y="1569.5" width="256" height="177"/><g class="cluster-label" transform="translate(224.12630208333337, 1569.5)"><foreignObject width="126.078125" height="21"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Random Generation</p></span></div></foreignObject></g></g></g><g class="subgraph"><g class="cluster" id="MAIN_FSM" data-id="MAIN_FSM" data-et="cluster" data-look="neo"><rect style="" x="462.1653645833333" y="1475" width="402.5015625" height="555"/><g class="cluster-label" transform="translate(563.4161458333333, 1475)"><foreignObject width="200" height="42"><div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Main Game Controller (top_whack_step2)</p></span></div></foreignObject></g></g></g><g class="subgraph"><g class="cluster" id="INPUT_DEBOUNCE" data-id="INPUT_DEBOUNCE" data-et="cluster" data-look="neo"><rect style="" x="797.6434895833335" y="877.5" width="366.28125" height="135"/><g class="cluster-label" transform="translate(925.9052083333335, 877.5)"><foreignObject width="109.7578125" height="21"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Input Debouncing</p></span></div></foreignObject></g></g></g><g class="subgraph"><g class="cluster" id="CLOCK_GEN" data-id="CLOCK_GEN" data-et="cluster" data-look="neo"><rect style="" x="253.44036458333346" y="550.5" width="483.203125" height="165"/><g class="cluster-label" transform="translate(440.95598958333346, 550.5)"><foreignObject width="108.171875" height="21"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Clock Generation</p></span></div></foreignObject></g></g></g></g><g class="nodes"><g class="node default output" id="flowchart-HEX_DISPLAYS-27" data-id="HEX_DISPLAYS" data-node="true" data-et="node" data-look="neo" transform="translate(338.06796875, 3670.5)"><rect class="basic label-container" style="fill:#e8f5e8 !important;stroke:#1b5e20 !important;stroke-width:2px !important" data-id="HEX_DISPLAYS" x="-78.640625" y="-64.5" width="157.28125" height="129" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-62.640625, -52.5)"><rect/><foreignObject width="125.28125" height="105"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>7-Segment Displays<br />HEX0: Score Low<br />HEX1: Score High<br />HEX6: Timer Ones<br />HEX7: Timer Tens</p></span></div></foreignObject></g></g><g class="node default output" id="flowchart-LEDR-28" data-id="LEDR" data-node="true" data-et="node" data-look="neo" transform="translate(158.18515625, 3639)"><rect class="basic label-container" style="fill:#e8f5e8 !important;stroke:#1b5e20 !important;stroke-width:2px !important" data-id="LEDR" x="-71.2421875" y="-33" width="142.484375" height="66" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-55.2421875, -21)"><rect/><foreignObject width="110.484375" height="42"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>LEDR[17:0]<br />Active Mole LEDs</p></span></div></foreignObject></g></g><g class="node default logic" id="flowchart-SCORE_SPLIT-21" data-id="SCORE_SPLIT" data-node="true" data-et="node" data-look="neo" transform="translate(552.6796875, 3193.5)"><rect class="basic label-container" style="fill:#f1f8e9 !important;stroke:#33691e !important;stroke-width:2px !important" data-id="SCORE_SPLIT" x="-98.484375" y="-43.5" width="196.96875" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-82.484375, -31.5)"><rect/><foreignObject width="164.96875" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Score Bit Slicing<br />score[3:0] → Lower Nibble<br />score[7:4] → Upper Nibble</p></span></div></foreignObject></g></g><g class="node default logic" id="flowchart-TIMER_SPLIT-22" data-id="TIMER_SPLIT" data-node="true" data-et="node" data-look="neo" transform="translate(159.97786458333334, 3193.5)"><rect class="basic label-container" style="fill:#f1f8e9 !important;stroke:#33691e !important;stroke-width:2px !important" data-id="TIMER_SPLIT" x="-85.64453125" y="-43.5" width="171.2890625" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-69.64453125, -31.5)"><rect/><foreignObject width="139.2890625" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Timer Division<br />sec_left / 10 → Tens<br />sec_left % 10 → Ones</p></span></div></foreignObject></g></g><g class="node default combinational" id="flowchart-SEG7_HEX0-23" data-id="SEG7_HEX0" data-node="true" data-et="node" data-look="neo" transform="translate(519.8515625, 3382.5)"><rect class="basic label-container" style="fill:#e8eaf6 !important;stroke:#3f51b5 !important;stroke-width:2px !important" data-id="SEG7_HEX0" x="-86.03125" y="-43.5" width="172.0625" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-70.03125, -31.5)"><rect/><foreignObject width="140.0625" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>seg7_hex Instance<br />Combinational Logic<br />Lower Nibble → HEX0</p></span></div></foreignObject></g></g><g class="node default combinational" id="flowchart-SEG7_HEX1-24" data-id="SEG7_HEX1" data-node="true" data-et="node" data-look="neo" transform="translate(721.9140625, 3382.5)"><rect class="basic label-container" style="fill:#e8eaf6 !important;stroke:#3f51b5 !important;stroke-width:2px !important" data-id="SEG7_HEX1" x="-86.03125" y="-43.5" width="172.0625" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-70.03125, -31.5)"><rect/><foreignObject width="140.0625" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>seg7_hex Instance<br />Combinational Logic<br />Upper Nibble → HEX1</p></span></div></foreignObject></g></g><g class="node default combinational" id="flowchart-SEG7_HEX6-25" data-id="SEG7_HEX6" data-node="true" data-et="node" data-look="neo" transform="translate(322.33984375, 3382.5)"><rect class="basic label-container" style="fill:#e8eaf6 !important;stroke:#3f51b5 !important;stroke-width:2px !important" data-id="SEG7_HEX6" x="-81.48046875" y="-43.5" width="162.9609375" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-65.48046875, -31.5)"><rect/><foreignObject width="130.9609375" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>seg7_hex Instance<br />Combinational Logic<br />Timer Ones → HEX6</p></span></div></foreignObject></g></g><g class="node default combinational" id="flowchart-SEG7_HEX7-26" data-id="SEG7_HEX7" data-node="true" data-et="node" data-look="neo" transform="translate(131.4296875, 3382.5)"><rect class="basic label-container" style="fill:#e8eaf6 !important;stroke:#3f51b5 !important;stroke-width:2px !important" data-id="SEG7_HEX7" x="-79.4296875" y="-43.5" width="158.859375" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-63.4296875, -31.5)"><rect/><foreignObject width="126.859375" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>seg7_hex Instance<br />Combinational Logic<br />Timer Tens → HEX7</p></span></div></foreignObject></g></g><g class="node default module" id="flowchart-SCORE_CORE-15" data-id="SCORE_CORE" data-node="true" data-et="node" data-look="neo" transform="translate(1100.4794270833333, 2868.5)"><rect class="basic label-container" style="fill:#f3e5f5 !important;stroke:#4a148c !important;stroke-width:2px !important" data-id="SCORE_CORE" x="-82.14453125" y="-43.5" width="164.2890625" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-66.14453125, -31.5)"><rect/><foreignObject width="132.2890625" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>score_core Instance<br />16-bit Binary Counter<br />Increment on Any Hit</p></span></div></foreignObject></g></g><g class="node default module" id="flowchart-WHACK_DETECT-14" data-id="WHACK_DETECT" data-node="true" data-et="node" data-look="neo" transform="translate(895.6669270833333, 2591)"><rect class="basic label-container" style="fill:#f3e5f5 !important;stroke:#4a148c !important;stroke-width:2px !important" data-id="WHACK_DETECT" x="-94.4609375" y="-54" width="188.921875" height="108" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-78.4609375, -42)"><rect/><foreignObject width="156.921875" height="84"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>whack_detect Instance<br />Toggle Detection Logic<br />XOR Previous State<br />Validate with Active Mask</p></span></div></foreignObject></g></g><g class="node default fsm" id="flowchart-MOLE_FSM-13" data-id="MOLE_FSM" data-node="true" data-et="node" data-look="neo" transform="translate(351.89973958333337, 2292.5)"><rect class="basic label-container" style="fill:#ffebee !important;stroke:#c62828 !important;stroke-width:3px !important" data-id="MOLE_FSM" x="-104.29296875" y="-64.5" width="208.5859375" height="129" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-88.29296875, -52.5)"><rect/><foreignObject width="176.5859375" height="105"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>mole_scheduler_multi<br />3-State FSM:<br />IDLE(0) → ON(1) → GAP(2)<br />MOLE_ON_MS=900<br />GAP_MS=250</p></span></div></foreignObject></g></g><g class="node default module" id="flowchart-LFSR-12" data-id="LFSR" data-node="true" data-et="node" data-look="neo" transform="translate(287.16536458333337, 1670)"><rect class="basic label-container" style="fill:#f3e5f5 !important;stroke:#4a148c !important;stroke-width:2px !important" data-id="LFSR" x="-116" y="-64.5" width="232" height="129" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-100, -52.5)"><rect/><foreignObject width="200" height="105"><div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>lfsr8 Instance<br />8-bit LFSR PRNG<br />Polynomial: x^8+x^6+x^5+x^4+1<br />Seed: 0x5A</p></span></div></foreignObject></g></g><g class="node default fsm" id="flowchart-GAME_TIMER-9" data-id="GAME_TIMER" data-node="true" data-et="node" data-look="neo" transform="translate(557.8684895833334, 1964)"><rect class="basic label-container" style="fill:#ffebee !important;stroke:#c62828 !important;stroke-width:3px !important" data-id="GAME_TIMER" x="-83.703125" y="-54" width="167.40625" height="108" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-67.703125, -42)"><rect/><foreignObject width="135.40625" height="84"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Game Timer Logic<br />6-bit Counter (0-30)<br />game_active Register<br />sec_left Register</p></span></div></foreignObject></g></g><g class="node default module" id="flowchart-KEY0_D1-10" data-id="KEY0_D1" data-node="true" data-et="node" data-look="neo" transform="translate(705.3895833333333, 1575.5)"><rect class="basic label-container" style="fill:#f3e5f5 !important;stroke:#4a148c !important;stroke-width:2px !important" data-id="KEY0_D1" x="-99.27734375" y="-43.5" width="198.5546875" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-83.27734375, -31.5)"><rect/><foreignObject width="166.5546875" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>key0_d1 Register<br />Previous Debounced State<br />Edge Detection Delay</p></span></div></foreignObject></g></g><g class="node default logic" id="flowchart-START_PULSE-11" data-id="START_PULSE" data-node="true" data-et="node" data-look="neo" transform="translate(732.5822916666667, 1764.5)"><rect class="basic label-container" style="fill:#f1f8e9 !important;stroke:#33691e !important;stroke-width:2px !important" data-id="START_PULSE" x="-81.578125" y="-43.5" width="163.15625" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-65.578125, -31.5)"><rect/><foreignObject width="131.15625" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Start Pulse Logic<br />key0_db &amp; ~key0_d1<br />Edge Detection</p></span></div></foreignObject></g></g><g class="node default module" id="flowchart-KEY0_DEBOUNCE-2" data-id="KEY0_DEBOUNCE" data-node="true" data-et="node" data-look="neo" transform="translate(884.8036458333335, 957)"><rect class="basic label-container" style="fill:#f3e5f5 !important;stroke:#4a148c !important;stroke-width:2px !important" data-id="KEY0_DEBOUNCE" x="-75.16015625" y="-43.5" width="150.3203125" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-59.16015625, -31.5)"><rect/><foreignObject width="118.3203125" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>debounce Instance<br />KEY[0] Debouncer<br />10 Stable Ticks</p></span></div></foreignObject></g></g><g class="node default module" id="flowchart-SW_DEBOUNCE-3" data-id="SW_DEBOUNCE" data-node="true" data-et="node" data-look="neo" transform="translate(1070.9442708333336, 957)"><rect class="basic label-container" style="fill:#f3e5f5 !important;stroke:#4a148c !important;stroke-width:2px !important" data-id="SW_DEBOUNCE" x="-80.98046875" y="-43.5" width="161.9609375" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-64.98046875, -31.5)"><rect/><foreignObject width="129.9609375" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>debounce Instance<br />SW[17:0] Debouncer<br />8 Stable Ticks</p></span></div></foreignObject></g></g><g class="node default clock" id="flowchart-CLK_1MS-0" data-id="CLK_1MS" data-node="true" data-et="node" data-look="neo" transform="translate(611.5028645833335, 630)"><rect class="basic label-container" style="fill:#fff8e1 !important;stroke:#f57f17 !important;stroke-width:2px !important" data-id="CLK_1MS" x="-113.140625" y="-43.5" width="226.28125" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-97.140625, -31.5)"><rect/><foreignObject width="194.28125" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>clk_en Instance<br />1ms Tick Generator<br />CLK_HZ=50M, TICK_HZ=1000</p></span></div></foreignObject></g></g><g class="node default clock" id="flowchart-CLK_1HZ-1" data-id="CLK_1HZ" data-node="true" data-et="node" data-look="neo" transform="translate(366.90130208333346, 630)"><rect class="basic label-container" style="fill:#fff8e1 !important;stroke:#f57f17 !important;stroke-width:2px !important" data-id="CLK_1HZ" x="-101.4609375" y="-43.5" width="202.921875" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-85.4609375, -31.5)"><rect/><foreignObject width="170.921875" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>clk_en Instance<br />1Hz Tick Generator<br />CLK_HZ=50M, TICK_HZ=1</p></span></div></foreignObject></g></g><g class="node default input" id="flowchart-CLK-4" data-id="CLK" data-node="true" data-et="node" data-look="neo" transform="translate(954.5236032196971, 123)"><rect class="basic label-container" style="fill:#e1f5fe !important;stroke:#01579b !important;stroke-width:3px !important" data-id="CLK" x="-82.90625" y="-33" width="165.8125" height="66" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-66.90625, -21)"><rect/><foreignObject width="133.8125" height="42"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>CLOCK_50<br />50MHz System Clock</p></span></div></foreignObject></g></g><g class="node default input" id="flowchart-KEY-5" data-id="KEY" data-node="true" data-et="node" data-look="neo" transform="translate(1251.6333333333334, 102)"><rect class="basic label-container" style="fill:#e1f5fe !important;stroke:#01579b !important;stroke-width:3px !important" data-id="KEY" x="-60.1640625" y="-54" width="120.328125" height="108" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-44.1640625, -42)"><rect/><foreignObject width="88.328125" height="84"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>KEY[3:0]<br />Push Buttons<br />KEY[3]=Reset<br />KEY[0]=Start</p></span></div></foreignObject></g></g><g class="node default input" id="flowchart-SW-6" data-id="SW" data-node="true" data-et="node" data-look="neo" transform="translate(1127.0591145833334, 672)"><rect class="basic label-container" style="fill:#e1f5fe !important;stroke:#01579b !important;stroke-width:3px !important" data-id="SW" x="-66.5859375" y="-43.5" width="133.171875" height="87" stroke="url(#gradient)"/><g class="label" style="" transform="translate(-50.5859375, -31.5)"><rect/><foreignObject width="101.171875" height="63"><div style="display: table-cell; white-space: normal; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>SW[17:0]<br />Toggle Switches<br />Mole Hit Inputs</p></span></div></foreignObject></g></g></g><g class="edges edgePaths"><path d="M977.1343986742426,156L977.1343986742426,298.9289321881345Q977.1343986742426,306 970.0633308623771,306L580.8603907285324,306Q573.7893229166668,306 573.7893229166668,313.0710678118655L573.7893229166668,543L573.7893229166668,582.5" id="L_CLK_CLK_1MS_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 9; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_CLK_CLK_1MS_0" data-points="W3sieCI6OTc3LjEzNDM5ODY3NDI0MjYsInkiOjE1Nn0seyJ4Ijo5NzcuMTM0Mzk4Njc0MjQyNiwieSI6MzA2fSx7IngiOjU3My43ODkzMjI5MTY2NjY4LCJ5IjozMDZ9LHsieCI6NTczLjc4OTMyMjkxNjY2NjgsInkiOjU0M30seyJ4Ijo1NzMuNzg5MzIyOTE2NjY2OCwieSI6NTg2LjV9XQ==" marker-end="url(#export-svg_flowchart-v2-pointEnd-margin)"/><path d="M962.0605350378789,156L962.0605350378789,268.9289321881345Q962.0605350378789,276 954.9894672260134,276L502.6182032285323,276Q495.54713541666683,276 495.54713541666683,283.0710678118655L495.54713541666683,505.9289321881345Q495.54713541666683,513 488.47606760480136,513L340.15205739519894,513Q333.08098958333346,513 333.08098958333346,520.0710678118655L333.08098958333346,543L333.08098958333346,582.5" id="L_CLK_CLK_1HZ_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 9; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_CLK_CLK_1HZ_0" data-points="W3sieCI6OTYyLjA2MDUzNTAzNzg3ODksInkiOjE1Nn0seyJ4Ijo5NjIuMDYwNTM1MDM3ODc4OSwieSI6Mjc2fSx7IngiOjQ5NS41NDcxMzU0MTY2NjY4MywieSI6Mjc2fSx7IngiOjQ5NS41NDcxMzU0MTY2NjY4MywieSI6NTEzfSx7IngiOjMzMy4wODA5ODk1ODMzMzM0NiwieSI6NTEzfSx7IngiOjMzMy4wODA5ODk1ODMzMzM0NiwieSI6NTQzfSx7IngiOjMzMy4wODA5ODk1ODMzMzM0NiwieSI6NTg2LjV9XQ==" marker-end="url(#export-svg_flowchart-v2-pointEnd-margin)"/><path d="M1007.2821259469698,156L1007.2821259469698,358.9289321881345Q1007.2821259469698,366 1000.2110581351044,366L829.145807395199,366Q822.0747395833334,366 822.0747395833334,373.0710678118655L822.0747395833334,817.9289321881345Q822.0747395833334,825 829.145807395199,825L832.6364842714679,825Q839.7075520833334,825 839.7075520833334,832.0710678118655L839.7075520833336,870L839.7075520833336,909.5" id="L_CLK_KEY0_DEBOUNCE_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 9; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_CLK_KEY0_DEBOUNCE_0" data-points="W3sieCI6MTAwNy4yODIxMjU5NDY5Njk4LCJ5IjoxNTZ9LHsieCI6MTAwNy4yODIxMjU5NDY5Njk4LCJ5IjozNjZ9LHsieCI6ODIyLjA3NDczOTU4MzMzMzQsInkiOjM2Nn0seyJ4Ijo4MjIuMDc0NzM5NTgzMzMzNCwieSI6ODI1fSx7IngiOjgzOS43MDc1NTIwODMzMzM0LCJ5Ijo4MjV9LHsieCI6ODM5LjcwNzU1MjA4MzMzMzYsInkiOjg3MH0seyJ4Ijo4MzkuNzA3NTUyMDgzMzMzNiwieSI6OTEzLjV9XQ==" marker-end="url(#export-svg_flowchart-v2-pointEnd-margin)"/><path d="M1022.3559895833334,156L1022.3559895833336,870L1022.3559895833336,909.5" id="L_CLK_SW_DEBOUNCE_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 9; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_CLK_SW_DEBOUNCE_0" data-points="W3sieCI6MTAyMi4zNTU5ODk1ODMzMzM0LCJ5IjoxNTZ9LHsieCI6MTAyMi4zNTU5ODk1ODMzMzM2LCJ5Ijo4NzB9LHsieCI6MTAyMi4zNTU5ODk1ODMzMzM2LCJ5Ijo5MTMuNX1d" marker-end="url(#export-svg_flowchart-v2-pointEnd-margin)"/><path d="M946.9866714015152,156L946.9866714015152,238.92893218813452Q946.9866714015152,246 939.9156035896497,246L244.51143239519894,246Q237.44036458333346,246 237.44036458333346,253.07106781186548L237.44036458333346,1084.5L237.44036458333346,1094.9289321881345Q237.44036458333346,1102 244.51143239519894,1102L483.5567967714679,1102Q490.62786458333335,1102 490.62786458333335,1109.0710678118655L490.62786458333346,1424L490.62786458333335,1467.5L490.62786458333335,1887.9289321881345Q490.62786458333335,1895 497.6989323951988,1895L502.1466145833333,1895Q507.6466145833333,1895 507.6466145833333,1900.5L507.6466145833333,1906" id="L_CLK_GAME_TIMER_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 9; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_CLK_GAME_TIMER_0" data-points="W3sieCI6OTQ2Ljk4NjY3MTQwMTUxNTIsInkiOjE1Nn0seyJ4Ijo5NDYuOTg2NjcxNDAxNTE1MiwieSI6MjQ2fSx7IngiOjIzNy40NDAzNjQ1ODMzMzM0NiwieSI6MjQ2fSx7IngiOjIzNy40NDAzNjQ1ODMzMzM0NiwieSI6MTA4NC41fSx7IngiOjIzNy40NDAzNjQ1ODMzMzM0NiwieSI6MTEwMn0seyJ4Ijo0OTAuNjI3ODY0NTgzMzMzMzUsInkiOjExMDJ9LHsieCI6NDkwLjYyNzg2NDU4MzMzMzQ2LCJ5IjoxNDI0fSx7IngiOjQ5MC42Mjc4NjQ1ODMzMzMzNSwieSI6MTQ2Ny41fSx7IngiOjQ5MC42Mjc4NjQ1ODMzMzMzNSwieSI6MTg5NX0seyJ4Ijo1MDcuNjQ2NjE0NTgzMzMzMywieSI6MTg5NX0seyJ4Ijo1MDcuNjQ2NjE0NTgzMzMzMywieSI6MTkxMH1d" marker-end="url(#export-svg_flowchart-v2-pointEnd-margin)"/><path d="M992.2082623106062,156L992.2082623106062,328.9289321881345Q992.2082623106062,336 985.1371944987407,336L758.7145573951989,336Q751.6434895833335,336 751.6434895833335,343.0710678118655L751.6434895833335,1084.5L751.6434895833335,1294.4289321881345Q751.6434895833335,1301.5 744.572421771468,1301.5L662.8219792701988,1301.5Q655.7509114583333,1301.5 655.7509114583333,1308.5710678118655L655.7509114583335,1424L655.7509114583333,1467.5L655.7509114583333,1528" id="L_CLK_KEY0_D1_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 9; stroke-dashoffset: 0;;" data-edge="true" data-et="edge" data-id="L_CLK_KEY0_D1_0" data-points="W3sieCI6OTkyLjIwODI2MjMxMDYwNjIsInkiOjE1Nn0seyJ4Ijo5OTIuMjA4MjYyMzEwNjA2MiwieSI6MzM2fSx7IngiOjc1MS42NDM0ODk1ODMzMzM1LCJ5IjozMzZ9LHsieCI6NzUxLjY0MzQ4OTU4MzMzMzUsInkiOjEwODQuNX0seyJ4Ijo3NTEuNjQzNDg5NTgzMzMzNSwieSI6MTMwMS41fSx7IngiOjY1NS43NTA5MTE0NTgzMzMzLCJ5IjoxMzAxLjV9LHsieCI6NjU1Ljc1MDkxMTQ1ODMzMzUsInkiOjE0MjR9LHsieCI6NjU1Ljc1MDkxMTQ1ODMzMzMsInkiOjE0NjcuNX0seyJ4Ijo2NTUuNzUwOTExNDU4MzMzMywieSI6MTUzMn1d" marker-end="url(#export-svg_flowchart-v2-pointEnd-margin)"/><path d="M931.9128077651517,156L931.9128077651517,208.92893218813452Q931.9128077651517,216 924.8417399532862,216L164.51143239519882,216Q157.44036458333335,216 157.44036458333335,223.07106781186548L157.44036458333335,1084.5L157.44036458333335,1182.4289321881345Q157.44036458333335,1189.5 164.51143239519882,1189.5L206.22085927146787,1189.5Q213.29192708333335,1189.5 213.29192708333335,1196.5710678118655L213.29192708333335,1294.4289321881345Q213.29192708333335,1301.5 220.36299489519882,1301.5L222.0942967714679,1301.5Q229.16536458333337,1301.5 229.16536458333337,1308.5710678118655L229.16536458333348,1424L229.16536458333337,1562L229.16536458333337,1601.5" id="L_CLK_LFSR_0" class="edge-thickness-normal edge-pattern-dotted edge-thickness-normal edge-pattern-solid flowchart-link" style="stroke-dasharray: 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2... (129 KB left)
+mermaid_draft_3.svg
+179 KB
+bit more complicated... the '/ 8' is sending 8 bits, they said i. should add that
+Image
+Ethan Samuels — Yesterday at 10:26 PM
+this is the simplified one where I removed the clock symbol, much nicer I think
+Image
+Cause they dont have the clock in theirs
+Will ask them tomorrow too
+﻿
+Number 1
+
+// Basically responsible for generating a 1 cycle pulse
+// Our fpga clock is too fast for humans to see 
+// we keep everythig in the same clock domain 
+module clk_en
+#(
+    parameter integer CLK_HZ  = 50_000_000, // input clock frequency in Hz (actual board clock)
+    parameter integer TICK_HZ = 1 // Our desired pulse rate in hz
+)(
+    input  wire clk, // our fast fpga clock (50Mhz)
+    input  wire rst_n, // async reset
+    output reg  tick // output - 1 clock cycle wide pulse
+);
+    // number of clock cycles per desired pulse 
+         // we use localparam instead of parameter because we dont want this value to change at any point
+    localparam integer DIV = (CLK_HZ/TICK_HZ);
+         
+         //free running counter
+    reg [31:0] cnt;
+     
+          
+         // synchronous logic with async active low reset
+         //  On reset: clear counter tick=0
+    //  Otherwise increment; when reaching DIV1, wrap and assert 1-cycle tick.
+    always @(posedge clk or negedge rst_n) begin
+         
+        
+        if (!rst_n) begin
+                  
+            cnt  <= 32'd0; // start countig from 0 
+            tick <= 1'b0;   // when reset no tick
+                                
+                                
+        end else begin
+                  
+            if (cnt == DIV-1) begin
+                                
+                                // case 1 - counter reached terminal count 
+                cnt  <= 32'd0;  // wrap up counter
+                tick <= 1'b1;   
+            end else begin
+                                //case 2 -  counter has not yet reached terminal count
+                cnt  <= cnt + 1'b1;
+                tick <= 1'b0;
+            end
+        end
+    end
+endmodule
+
+
+Number 2
+
+// lfsr8.v : 8-bit Fibonacci LFSR, taps x^8 + x^6 + x^5 + x^4 + 1
+// purpose - produces a squence of semi random 8 bit values
+// used to pick random leds 
+//replacemnt for $random which is not sythesizable  
+module lfsr8 (
+    input  wire clk, // our main clock
+    input  wire rst_n, // async reset active low
+    input  wire step_en, 
+    output reg  [7:0] q //current 8 bit shift reg value
+);
+
+
+    // this is the feedack bit - xor of selected taps from current q
+         // zero biased indexing
+    wire fb = q[7] ^ q[5] ^ q[4] ^ q[3];
+     
+          
+         // Our squential logic
+         // will reset asynchronously if rst_n goes low
+    always @(posedge clk or negedge rst_n) begin
+         
+        if (!rst_n)
+                  // all zero state would lock the lfsr 
+                  q <= 8'h5A;       // 0x5A - 01011010        
+        else if (step_en) 
+                  
+                  // When step_en=1: shift register left by 1
+            // - q[6:0] move up into q[7:1]
+            // - new bit (fb) enters q[0]
+                  q <= {q[6:0], fb}; 
+    end
+endmodule
+
+
+Number 3 
+
+// main purpose - detect exactly one scoreable toggle 
+// you get 1 cycle pulse when player hits the correct switch
+//after teh correct toggle other toggles are ignored 
+module whack_detect
+#(
+    parameter integer WIDTH = 18 // number or switches/ moles
+)(
+    input  wire              clk,
+    input  wire              rst_n, // async reset
+    input  wire              game_active, //game enable
+    input  wire              spawn_pulse,     // from scheduler when a new mole spawns
+    input  wire [WIDTH-1:0]  sw_stable,       // debounced switches
+    input  wire [WIDTH-1:0]  active_mask,     // one-hot which mole is lit
+    output reg               hit_pulse_once,  // 1cycle pulse only once per mole window
+    output reg               scored_window    // holds 1 after a successful hit until next spawn
+);
+
+
+// previous sampled switch levels 
+// we here sample every clk to detect either toggle using xor 
+    reg [WIDTH-1:0] sw_d1;
+
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+                  //on reset - clear all the history and outputs 
+            sw_d1         <= {WIDTH{1'b0}};
+            hit_pulse_once<= 1'b0;
+            scored_window <= 1'b0;
+                                
+                                
+                        
+        end else begin
+                  
+                  // update prior sample register every clock for our edge detection 
+            sw_d1         <= sw_stable;
+            hit_pulse_once<= 1'b0;
+
+
+            // Reset window score latch when a new mole appears or game stops
+            if (spawn_pulse || !game_active) begin
+                scored_window <= 1'b0;
+            end else begin
+                // edge [either direction] on the lit switch
+                if (!scored_window) begin
+                    if (|( (sw_stable ^ sw_d1) & active_mask )) begin
+                        hit_pulse_once <= 1'b1;
+                        scored_window  <= 1'b0 | 1'b1; // latch that this window has been scored
+                    end
+                end
+            end
+        end
+    end
+endmodule
+
+
+Number 4
+
+
+// hex nibble to active-low 7-seg {g,f,e,d,c,b,a}
+// input - 4 bit nib 
+// output - 7 bit segment (active low)
+module seg7_hex (
+    input  wire [3:0] nib, // 4 bit input value 
+    output reg  [6:0] seg  // 7 seg outputs active low 
+);
+    always @* begin
+        case (nib)
+                  // we use a case statemnt here to map each hex value to its pattern 
+            4'h0: seg = 7'b1000000;
+            4'h1: seg = 7'b1111001;
+            4'h2: seg = 7'b0100100;
+            4'h3: seg = 7'b0110000;
+            4'h4: seg = 7'b0011001;
+            4'h5: seg = 7'b0010010;
+            4'h6: seg = 7'b0000010;
+            4'h7: seg = 7'b1111000;
+            4'h8: seg = 7'b0000000;
+            4'h9: seg = 7'b0010000;
+            4'hA: seg = 7'b0001000;
+            4'hB: seg = 7'b0000011;
+            4'hC: seg = 7'b1000110;
+            4'hD: seg = 7'b0100001;
+            4'hE: seg = 7'b0000110;
+            4'hF: seg = 7'b0001110;
+            default: seg = 7'b1111111;
+        endcase
+    end
+endmodule
+
+
+
+
+Number 5
+
+// purpose - choose 1 mole and keep it on for MOLE_ON_MS
+// repeat forever until game is active/on
+// rnd here is a 8 bit LFSR value we take its low bits to choose an index
+module mole_scheduler_multi
+#(
+    parameter integer N_MOLES      = 18,  // numbe rof leds 
+    parameter integer MOLE_ON_MS   = 900,  // how long a mole stays ON
+    parameter integer GAP_MS       = 250   // idle gap before next mole
+)(
+    input  wire                   clk,
+    input  wire                   rst_n, // async reset 
+    input  wire                   game_active, 
+    input  wire                   tick_1ms,   // 1 ms strobe 
+    input  wire [7:0]             rnd,           // randomness source
+    output reg  [N_MOLES-1:0]     active_mask,   // one-hot active mole
+    output reg                    spawn_pulse,   // 1-cycle pulse when new mole spawns
+    output reg                    expire_pulse   // 1-cycle pulse when mole window ends
+);
+
+
+// why localparam? mentioned in a diff module
+//FSM - IDLE - ON - GAP - IDLE
+    localparam S_IDLE = 2'd0,
+               S_ON   = 2'd1,
+               S_GAP  = 2'd2;
+
+
+    reg [1:0]  state;
+    reg [15:0] ms_cnt; // ms count for ON/GAP durations 
+
+
+    // pick index 0..N_MOLES-1 from rnd 
+    wire [4:0] idx_raw = rnd[4:0];
+    wire [4:0] idx_fit = (idx_raw >= N_MOLES[4:0]) ? (idx_raw - N_MOLES[4:0]) : idx_raw;
+         
+         // one hot mask with only idx_fit bit set 
+    wire [N_MOLES-1:0] onehot_next = ({{(N_MOLES-1){1'b0}},1'b1} << idx_fit);
+
+
+         
+         
+         
+         
+         
+         // our main sequential process
+         // 
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+                  // hard reset - all off/idle
+            state       <= S_IDLE;
+            ms_cnt      <= 16'd0;
+            active_mask <= {N_MOLES{1'b0}};
+            spawn_pulse <= 1'b0;
+            expire_pulse<= 1'b0;
+                                
+        end else if (!game_active) begin
+                  
+                  // if the game is not active force IDLE w no active mole 
+            state       <= S_IDLE;
+            ms_cnt      <= 16'd0;
+            active_mask <= {N_MOLES{1'b0}};
+            spawn_pulse <= 1'b0;
+            expire_pulse<= 1'b0;
+        end else begin
+                  // default pulses to 0 each cycle 
+            spawn_pulse  <= 1'b0;
+            expire_pulse <= 1'b0;
+            
+                                
+                                // drive our FSM only on the 1 ms strobe 
+            if (tick_1ms) begin
+                case (state)
+                    S_IDLE: begin
+                        active_mask <= onehot_next;
+                        ms_cnt      <= MOLE_ON_MS[15:0]; // load on duration
+                        state       <= S_ON;
+                        spawn_pulse <= 1'b1;   // announce spawn 
+                    end
+                    S_ON: begin
+                        if (ms_cnt == 0) begin
+                                                                // times up for this mole - turn it off 
+                            active_mask  <= {N_MOLES{1'b0}};
+                            ms_cnt       <= GAP_MS[15:0]; // load GAP duration
+                            state        <= S_GAP;
+                            expire_pulse <= 1'b1;   // end of windoww
+                        end else begin
+                            ms_cnt <= ms_cnt - 16'd1;
+                        end
+                    end
+                    S_GAP: begin
+                        if (ms_cnt == 0) begin
+                                                                // gap is over go back to idle and spawn next 
+                            state <= S_IDLE;
+                        end else begin
+                            ms_cnt <= ms_cnt - 16'd1;
+                        end
+                    end
+                    default: state <= S_IDLE;
+                endcase
+            end
+        end
+    end
+endmodule
+
+
+
+
+
+Number 6
+
+
+// top_whack_final.v : Whack-a-Mole 
+// - KEY0 (active-low) starts a 30 s game 
+// - 18 LEDs act as moles one mole at a time
+// - Score on HEX3..HEX0 = 0000..9999
+// - Timer on HEX7..HEX6 
+// - +5 bonus on every 3rd consecutive hit 
+
+
+module top_whack_final #(
+    parameter integer CLK_HZ       = 50_000_000,
+    parameter integer GAME_SECONDS = 30,
+    parameter integer N_MOLES      = 18,
+    parameter integer MOLE_ON_MS   = 900,   // mole visible time 
+    parameter integer GAP_MS       = 250    // gap between moles 
+)(
+    input  wire         CLOCK_50,
+    input  wire [17:0]  SW,
+    input  wire [3:0]   KEY,                 // active-LOW pushbuttons
+    output wire [17:0]  LEDR,
+    output wire [6:0]   HEX0, HEX1, HEX2, HEX3,  // SCORE  
+    output wire [6:0]   HEX4, HEX5,             // unused=OFF
+    output wire [6:0]   HEX6, HEX7              // TIMER  
+);
+   // Global reset use KEY3 
+    wire rst_n = KEY[3];
+
+
+    // Clock enables (1 ms and 1 Hz)
+    wire tick_1ms, tick_1hz;
+    clk_en #(.CLK_HZ(CLK_HZ), .TICK_HZ(1000)) u_ms (.clk(CLOCK_50), .rst_n(rst_n), .tick(tick_1ms));
+    clk_en #(.CLK_HZ(CLK_HZ), .TICK_HZ(1   )) u_1s (.clk(CLOCK_50), .rst_n(rst_n), .tick(tick_1hz));
+
+
+    // START button (KEY0) debounced 
+    // DE2/DE2-115 boards wire KEY0 as active-low already.
+    wire key0_db_n;  // debounced activelow: 0 = pressed
+    debounce_button #(
+        .CLK_HZ(50_000_000),
+        .DEBOUNCE_US(50)      
+    ) u_db_key0 (
+        .clk   (CLOCK_50),
+        .rst_n (rst_n),
+        .button(KEY[0]),
+        .button_pressed(key0_db_n)
+    );
+
+
+    // Generate start pulse on press 
+    reg key0_db_n_d1;
+    always @(posedge CLOCK_50 or negedge rst_n) begin
+        if (!rst_n) key0_db_n_d1 <= 1'b1;
+        else        key0_db_n_d1 <= key0_db_n;
+    end
+    wire start_pulse = (key0_db_n == 1'b0) && (key0_db_n_d1 == 1'b1);
+
+
+    //  30 s game timer
+    reg        game_active;
+    reg [5:0]  sec_left;      
+    always @(posedge CLOCK_50 or negedge rst_n) begin
+        if (!rst_n) begin
+            game_active <= 1'b0;
+            sec_left    <= 6'd0;
+        end else begin
+            if (start_pulse) begin
+                game_active <= 1'b1;
+                sec_left    <= GAME_SECONDS[5:0];
+            end else if (game_active && tick_1hz) begin
+                if (sec_left > 0) sec_left <= sec_left - 6'd1;
+                if (sec_left == 6'd1) game_active <= 1'b0;  // stop when reaching 0
+            end
+        end
+    end
+
+
+    // Debounced switches 
+    wire [N_MOLES-1:0] sw_db;
+    debounce_vec #(
+        .WIDTH       (N_MOLES),
+        .CLK_HZ      (50_000_000),
+        .DEBOUNCE_US (8000)        // ~8 ms typical for slide switches
+    ) u_db_sw (
+        .clk (CLOCK_50),
+        .rst_n(rst_n),
+        .din (SW[N_MOLES-1:0]),
+        .dout(sw_db)
+    );
+
+
+    // RNG 
+    wire [7:0] rnd;
+    lfsr8 u_rnd (.clk(CLOCK_50), .rst_n(rst_n), .step_en(tick_1ms), .q(rnd));
+
+
+    //  Mole scheduler 
+    wire [N_MOLES-1:0] active_mask;
+    wire spawn_pulse, expire_pulse;
+    mole_scheduler_multi #(
+        .N_MOLES(N_MOLES),
+        .MOLE_ON_MS(MOLE_ON_MS),
+        .GAP_MS(GAP_MS)
+    ) u_sched (
+        .clk(CLOCK_50), .rst_n(rst_n),
+        .game_active(game_active), .tick_1ms(tick_1ms),
+        .rnd(rnd),
+        .active_mask(active_mask),
+        .spawn_pulse(spawn_pulse),
+        .expire_pulse(expire_pulse)
+    );
+
+
+    //  Whack detect
+    wire hit_once_pulse;
+    wire window_scored;
+    whack_detect #(.WIDTH(N_MOLES)) u_hit (
+        .clk(CLOCK_50), .rst_n(rst_n), .game_active(game_active),
+        .spawn_pulse(spawn_pulse),
+        .sw_stable(sw_db), .active_mask(active_mask),
+        .hit_pulse_once(hit_once_pulse),
+        .scored_window(window_scored)
+    );
+
+
+    //  Streak bonus: +5 on every 3rd consecutive HIT 
+    reg [1:0] streak;      // 0..2
+    reg       bonus_pulse; // one-cycle when awarding +5
+    always @(posedge CLOCK_50 or negedge rst_n) begin
+        if (!rst_n) begin
+            streak      <= 2'd0;
+            bonus_pulse <= 1'b0;
+        end else begin
+            bonus_pulse <= 1'b0;  // default
+
+
+            // Evaluate hit/miss at the end of a mole window
+            if (expire_pulse && game_active) begin
+                if (window_scored) begin
+                    if (streak == 2'd2) begin
+                        streak      <= 2'd0;   // 3rd in a row → award bonus and reset streak
+                        bonus_pulse <= 1'b1;   // +5 this cycle
+                    end else begin
+                        streak <= streak + 2'd1;
+                    end
+                end else begin
+                    streak <= 2'd0;            // miss resets streak
+                end
+            end
+        end
+    end
+
+
+    //  Score (binary) with +1 and +5, saturate at 9999 
+    wire [15:0] score_bin;
+    score_bin_bonus u_score (
+        .clk(CLOCK_50), .rst_n(rst_n), .start_pulse(start_pulse),
+        .game_active(game_active),
+        .hit_pulse(hit_once_pulse), .bonus_pulse(bonus_pulse),
+        .score_bin(score_bin)
+    );
+
+
+    //  LEDs show the current mole 
+    assign LEDR[N_MOLES-1:0] = active_mask;
+
+
+    //  SCORE to HEX3..HEX0 (decimal, all four digits shown)
+    wire [3:0] sc_th, sc_hu, sc_te, sc_on;
+    bin16_to_bcd u_b2b (
+        .bin (score_bin),
+        .bcd3(sc_th),   // thousands
+        .bcd2(sc_hu),   // hundreds
+        .bcd1(sc_te),   // tens
+        .bcd0(sc_on)    // ones
+    );
+
+
+    
+seg7_hex u_hex0 (.nib(sc_on), .seg(HEX3));  // rightmost phys seg be HEX3
+seg7_hex u_hex1 (.nib(sc_te), .seg(HEX2));
+seg7_hex u_hex2 (.nib(sc_hu), .seg(HEX1));
+seg7_hex u_hex3 (.nib(sc_th), .seg(HEX0));
+    // TIMER on HEX7:HEX6 
+    wire [3:0] t_tens = (sec_left / 10);
+    wire [3:0] t_ones = (sec_left % 10);
+    seg7_hex u_hex7 (.nib(t_tens), .seg(HEX7));
+    seg7_hex u_hex6 (.nib(t_ones), .seg(HEX6));
+
+
+    // Unused digits OFF 
+    assign HEX4 = 7'b1111111;
+    assign HEX5 = 7'b1111111;
+
+
+endmodule
+
+
+
+Number 7
+
+
+// purpose: 16-bit score, adds +1 on hit, +5 on bonus
+// can count till 9999 (not possible to reach)
+
+
+module score_bin_bonus (
+    input  wire       clk,
+    input  wire       rst_n,          // active-low
+    input  wire       start_pulse,    // new game -> clear score
+    input  wire       game_active,
+    input  wire       hit_pulse,      // +1
+    input  wire       bonus_pulse,    // +5
+    output reg [15:0] score_bin
+);
+    wire [3:0] delta = (hit_pulse ? 4'd1 : 4'd0) + (bonus_pulse ? 4'd5 : 4'd0);
+    wire [16:0] sum  = score_bin + delta;  // 17bit to catch overflow
+    wire        at_max = (score_bin >= 16'd9999);
+
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            score_bin <= 16'd0;
+        end else if (start_pulse) begin
+            score_bin <= 16'd0;
+        end else if (game_active && (hit_pulse || bonus_pulse)) begin
+            if (at_max) score_bin <= 16'd9999;
+            else if (sum > 16'd9999) score_bin <= 16'd9999;
+            else score_bin <= sum[15:0];
+        end
+    end
+endmodule
+
+
+Number 8
+
+// purpose -  16-bit unsigned -> 4 BCD digits (thousands..ones), combinational
+module bin16_to_bcd(
+    input  wire [15:0] bin,
+    output reg  [3:0]  bcd3,  // thousands
+    output reg  [3:0]  bcd2,  // hundreds
+    output reg  [3:0]  bcd1,  // tens
+    output reg  [3:0]  bcd0   // ones
+);
+    integer i;
+    reg [31:0] sh; // [31:28]=ones, [27:24]=tens, [23:20]=hundreds, [19:16]=thousands, [15:0]=bin
+    always @* begin
+        sh = {16'd0, bin};
+        for (i=0; i<16; i=i+1) begin
+            if (sh[31:28] >= 5) sh[31:28] = sh[31:28] + 4'd3; // ones
+            if (sh[27:24] >= 5) sh[27:24] = sh[27:24] + 4'd3; // tens
+            if (sh[23:20] >= 5) sh[23:20] = sh[23:20] + 4'd3; // hundreds
+            if (sh[19:16] >= 5) sh[19:16] = sh[19:16] + 4'd3; // thousands
+            sh = sh << 1;
+        end
+        bcd0 = sh[31:28];
+        bcd1 = sh[27:24];
+        bcd2 = sh[23:20];
+        bcd3 = sh[19:16];
+    end
+endmodule
+
+
+
+
+Number 9
+
+// purpose -  Double register input to prevent metastability
+module synchroniser (
+    input  wire clk,     // system clock 
+    input  wire rst_n,   // async reset, active-low
+    input  wire din,     // raw asynchronous input
+    output reg  dout     // synchronised output
+);
+    reg s1;
+
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            s1   <= 1'b1;   // assume idle high
+            dout <= 1'b1;
+        end else begin
+            s1   <= din;
+            dout <= s1;
+        end
+    end
+endmodule
+
+
+
+
+Number 10
+
+// purpose -  Debounce an ACTIVE-LOW pushbutton using a counter.
+// Default: 50 MHz clock, 50 us debounce = 2500 counts 
+module debounce_button #(
+    parameter integer CLK_HZ       = 50_000_000,
+    parameter integer DEBOUNCE_US  = 50,
+    parameter integer DELAY_COUNTS = (CLK_HZ/1_000_000)*DEBOUNCE_US
+)(
+    input  wire clk,
+    input  wire rst_n,
+    input  wire button,          // raw active low: 0 = pressed
+    output reg  button_pressed   // debounced active-low
+);
+    // 2FF synchroniser into 'clk' domain
+    wire button_sync;
+    synchroniser u_sync (
+        .clk (clk), .rst_n(rst_n),
+        .din (button),
+        .dout(button_sync)
+    );
+
+
+    // Counter-based stability timer
+    localparam integer W = (DELAY_COUNTS <= 1) ? 1 : $clog2(DELAY_COUNTS+1);
+    reg [W-1:0] cnt;
+    reg stable_level;  // candidate level being timed
+
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            button_pressed <= 1'b1;  // idle = not pressed
+            stable_level   <= 1'b1;
+            cnt            <= {W{1'b0}};
+        end else begin
+            if (button_sync == stable_level) begin
+                if (cnt < DELAY_COUNTS[W-1:0]) cnt <= cnt + 1'b1;
+                if (cnt == DELAY_COUNTS[W-1:0]) button_pressed <= stable_level;
+            end else begin
+                stable_level <= button_sync;      // saw a change, start timing new level
+                cnt          <= {W{1'b0}};
+            end
+        end
+    end
+endmodule
+
+
+
+Number 11
+
+
+// as w etalked about in the lab we had to fix the multiple toggles at the same time this adderesses that
+// a 2 FF synchroniser + counte rbit 
+
+
+
+
+module debounce_level1 #(
+
+
+    parameter integer CLK_HZ       = 50_000_000,                 // input clock freq 
+    parameter integer DEBOUNCE_US  = 8000,                       // debounce time 
+    parameter integer DELAY_COUNTS = (CLK_HZ/1_000_000)*DEBOUNCE_US
+)(
+    input  wire clk,     // system clock 
+    input  wire rst_n,   // async reset
+    input  wire din,     // asynchronous input 
+    output reg  dout     // debounced level 
+);
+    
+    wire din_sync;
+    synchroniser u_sync (
+        .clk (clk),
+        .rst_n(rst_n),
+        .din (din),
+        .dout(din_sync)
+    );
+
+
+    //  Counter width large enough to count to DELAY_COUNTS
+    
+    localparam integer W = (DELAY_COUNTS <= 1) ? 1 : $clog2(DELAY_COUNTS+1);
+
+
+    reg [W-1:0] cnt;         
+    reg         stable_level;// candidate level we're timing toward acceptance
+
+
+    // 3) Sequential logic: accept a new output only after a full stable window
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            // Choose safe reset defaults:
+            //  - dout defaults low 
+            //  - stable_level defaults low the first opposite level will restart timing
+            dout         <= 1'b0;
+            stable_level <= 1'b0;
+            cnt          <= {W{1'b0}};
+
+
+        end else begin
+            if (din_sync == stable_level) begin
+                // Still seeing the SAME level as our current candidate:
+                // accumulate time until we reach the required stability window.
+                if (cnt < DELAY_COUNTS[W-1:0])
+                    cnt <= cnt + 1'b1;
+
+
+               
+                if (cnt == DELAY_COUNTS[W-1:0])
+                    dout <= stable_level;
+
+
+            end else begin
+                // The input changed level (relative to our candidate):
+                // start timing the NEW level from zero; don't change dout yet.
+                stable_level <= din_sync;
+                cnt          <= {W{1'b0}};
+            end
+        end
+    end
+endmodule
+
+
+
+
+
+
+//  debounce WIDTH independent bits with the same timing params
+
+
+module debounce_vec #(
+    parameter integer WIDTH        = 1,             // number of inputs
+    parameter integer CLK_HZ       = 50_000_000,    // shared clock
+    parameter integer DEBOUNCE_US  = 8000,          // per-bit debounce in µs
+    parameter integer DELAY_COUNTS = (CLK_HZ/1_000_000)*DEBOUNCE_US
+)(
+    input  wire               clk,
+    input  wire               rst_n,
+    input  wire [WIDTH-1:0]   din,   // raw inputs 
+    output wire [WIDTH-1:0]   dout   // debounced outputs 
+);
+    genvar i;
+    generate
+        for (i=0; i<WIDTH; i=i+1) begin : g_dbv
+            debounce_level1 #(
+                .CLK_HZ      (CLK_HZ),
+                .DEBOUNCE_US (DEBOUNCE_US),
+                .DELAY_COUNTS(DELAY_COUNTS)
+            ) u_bit (
+                .clk (clk),
+                .rst_n(rst_n),
+                .din (din[i]),
+                .dout(dout[i])
+            );
+        end
+    endgenerate
+endmodule
+Untitled document (1).txt
+24 KB
